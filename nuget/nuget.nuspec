@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>3.4.3</version>
+    <authors>Alex Rainman</authors>
+    <owners>Alex Rainman</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/alexrainman/ModernHttpClient</projectUrl>
+    <id>modernhttpclient-updated</id>
+    <title>ModernHttpClient</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This library brings the latest platform-specific networking libraries to Xamarin applications via a custom HttpClient handler.</description>
+    <summary>This library brings the latest platform-specific networking libraries to Xamarin applications via a custom HttpClient handler.</summary>
+    <copyright>Copyright Alex Rainman © 2019</copyright>
+    <iconUrl>https://github.com/alexrainman/ModernHttpClient/blob/master/download.png</iconUrl>
+    <releaseNotes>
+3.4.3
+[Android] Updating to OkHttp3 3.12.6
+[Android] Didn't find class "android.security.NetworkSecurityPolicy" on path: DexPathList bug #57
+[Android] VerifyPins() fails for SHA1 and MD5 pins bug #58
+[Android] Http2 support PR #63
+[Android] Fix for #57 on android 5.0 application crashes PR #61
+[iOS] Removing support for MD5 pins as it is not supported in Android OkHttp
+3.4.2
+[Android] Deprecating DangerousAllowInsecureHTTPLoads
+[Android] CLEARTEXT enabled by default in pre-Lollipop
+[Update] Refactoring CertificatePinner to match Android OkHttp
+[Update] Adding CertificateOnly and PublicKeysOnly pinning modes
+[Update] Default pinning mode set to CertificateOnly
+[Update] Pinning mode set to PublicKeysOnly if at least pins for one domain are provided
+[Update] MatchHostnameToPattern applied to all alternative names when validating hostname
+[Update] Performing cookie path-checking before adding them to the cookie collection (PR by @phdonnelly)
+[Update] Supporting public keys in sha256, sha1 and md5 formats
+3.3.4
+[Update] Skip pinning for specific domain with empty pins array
+[Update] Validating pins and client certificate base64 string
+3.3.3
+[Update] Adding support for Proxy-Authorization
+[UWP] Pin wildcard hostnames #34
+3.3.2
+[Android] Supporting TLS 1.2+
+3.3.1
+[Android] Allowing TLS with CLEARTEXT simultaneously
+3.3.0
+Renaming SSLConfig to TLSConfig
+Renaming EnableUntrustedCertificates to DangerousAcceptAnyServerCertificateValidator, moving it as a property of TLSConfig
+Adding TLSConfig DangerousAllowInsecureHTTPLoads to enable plaintext HTTP in Android, matching iOS NSAppTransportSecurity $35
+Adding support for wildcard hostname validation #34
+3.2.1
+Cumulative versioning update.
+2.8.2
+Validating hostname against certificate Subject Alternative Names, if any, in case it doesn't match the CN
+2.8.1
+[iOS] Timeout using wrong TimeSpan value #31.
+[Android] "Trust anchor for certification path not found." with self-signed certificate.
+2.8.0
+Code refactoring.
+Adding support for Mutual TLS Authentication
+Enforcing TLS1.2
+Adding support for web proxy.
+[iOS] Removing minimumSSLProtocol static property.
+[Android] Removing verifyHostnameCallback static property.
+[Android] Removing customTrustManager static property.
+2.7.2 
+[Android] Handshake failed (adding customTrustManager static property) #11
+2.7.1
+[Android] MissingMethodException Method 'ModernHttpClient.NativeMessageHandler..ctor' not found. #9
+[iOS] Removing minimumSSLProtocol from NativeMessageHandler ctor
+[UWP] Exception on UWP with Xamarin Forms #3
+2.7.0
+Migrating to a multi-target project
+[Android] Calling HttpClient methods should throw .Net Exception when fail #5
+[Android] VerifyHostnameCallback parameter function on constructor (NativeMessageHandler - Android) when customSSLVerification is true #6
+[Android] ReasonPhrase is empty under HTTPS #8
+2.6.0
+Adding support for UWP
+Adding support for netstandard 2.0
+2.5.3
+Cookies set with the native handler will be merged into the Cookie header
+2.5.1
+[Android] NativeCookieHandler, if provided, is set as the default CookieJar for OkHttpClient
+Adding DeleteCookies, SetCookie and DeleteCookie to NativeCookieHandler
+2.5.0
+[Android] Updating to Square.OkHttp3
+2.4.7
+Cookies set with the native handler will be merged into the Cookie header
+2.4.5
+[Android] NativeCookieHandler, if provided, is set as the default cookie handler for OkHttpClient
+Adding DeleteCookies, SetCookie and DeleteCookie to NativeCookieHandler
+2.4.4
+[Android] SIGABRT after UnknownHostException #229
+[iOS] Updating obsolete NSUrlSessionDelegate to INSUrlSessionDelegate
+Adding EnableUntrustedCertificates to support self-signed certificates
+2.4.3
+Adding Timeout property
+[Android] Updating to Square.OkHttp 2.7.5
+[Android] Timeout value is not respected on Android #192
+        </releaseNotes>
+    <dependencies>
+      <group targetFramework="MonoAndroid">
+        <dependency id="Square.OkHttp3" version="3.12.6" />
+      </group>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Portable.BouncyCastle" version="1.8.5" />
+      </group>
+      <group targetFramework="UAP10">
+        <dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="6.2.8" />
+        <dependency id="Portable.BouncyCastle-Signed" version="1.7.0.2" />
+      </group>
+    </dependencies>
+  </metadata>
+
+  <files>
+    <!-- NetStandard -->
+    <file src="lib/netstandard2.0/ModernHttpClient.dll" target="lib/netstandard2.0/ModernHttpClient.dll" />
+
+    <!-- Xamarin.iOS -->
+    <file src="lib/iOS/ModernHttpClient.dll" target="lib/Xamarin.iOS10/ModernHttpClient.dll" />
+
+    <!-- Xamarin.Android -->
+    <file src="lib/Android/ModernHttpClient.dll" target="lib/MonoAndroid/ModernHttpClient.dll" />
+
+    <!-- UWP -->
+    <file src="lib/UWP/ModernHttpClient.dll" target="lib/UAP10/ModernHttpClient.dll" />
+    <file src="lib/UWP/ModernHttpClient.pri" target="lib/UAP10/ModernHttpClient.pri" />
+
+    <!-- PCL -->
+    <file src="lib/Portable/ModernHttpClient.dll" target="lib/portable-net45+win8+wpa81/ModernHttpClient.dll" />
+
+  </files>
+</package>

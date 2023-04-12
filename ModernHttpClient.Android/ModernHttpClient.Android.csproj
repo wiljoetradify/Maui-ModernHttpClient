@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseMaui>true</UseMaui>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net7.0-android</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Java.Interop" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Square.OkHttp3" Version="4.10.0.1" />
+    <PackageReference Include="Square.OkIO" Version="2.10.0.6" />
+    <PackageReference Include="Square.OkIO.JVM" Version="3.0.0.1" />
+    <PackageReference Include="Xamarin.Jetbrains.Annotations" Version="24.0.1" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib" Version="1.8.20" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Common" Version="1.8.20" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.8.20" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.8.20" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Remove="Microsoft.Maui.Graphics" />
+    <PackageReference Update="Microsoft.Maui.Graphics" Version="7.0.81" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+</Project>
